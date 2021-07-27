@@ -1,26 +1,16 @@
-import React from 'react';
-
-function Rating (props){
-
-    const number = Math.round(props.children)
-
-    let stars = '';
-    for (let i = 0; i < 5; i++) {
-        if (i < number) {
-            stars += '★';    
-        } else {
-            stars += '☆';
-        }
-    }
-
-
+function Rating(props) {
+    const stars = [1, 2, 3, 4, 5] 
     return(
-
-
-                <div className="rate-star">
-                    {stars}
-                </div>
+        <div>
+            {stars.map(star => (
+            <i 
+                className="fa fa-star"
+                style={{ color: star <= Math.round(props.children) ? 'yellow' : 'grey' }}    
+            ></i>
+            ))}
+        </div>
 
     )
 }
-export default Rating
+
+export default Rating 
